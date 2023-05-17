@@ -13,6 +13,13 @@
 *.cb2
 .*.lb
 
+## Git empastre
+*REMOTE*.pdf
+*LOCAL*.pdf
+*BASE*.pdf
+*BACKUP*.pdf
+*.orig
+
 ## Intermediate documents:
 *.dvi
 *.xdv
