@@ -17,8 +17,38 @@ El proyecto se apoya en el microcontrolador ESP32, el protocolo HTTP/HTTPS, el s
 \subsection{Microcontrolador ESP32}
 El microcontrolador ESP32, desarrollado por Espressif Systems, es el componente central de este proyecto. Este dispositivo se destaca por su alto rendimiento, bajo consumo de energía y amplias capacidades de conectividad. Cuenta con un procesador de doble núcleo, conectividad Wi-Fi y Bluetooth, así como interfaces GPIO para interactuar con diversos periféricos. El ESP32 ofrece una plataforma sólida y versátil para implementar aplicaciones IoT y sistemas embebidos.
 
+%% Aqui meter una comparativa de porquie he escogido el modulito que he escogido
+
 \subsection{Servidor HTTP Python}
 Para la comunicación entre el microcontrolador y el servidor, se ha utilizado el protocolo HTTP (Hypertext Transfer Protocol) y su versión segura HTTPS (HTTP Secure). Estos protocolos permiten la transferencia de datos entre el cliente (microcontrolador) y el servidor de forma segura y eficiente. El uso de HTTPS garantiza la encriptación de los datos transmitidos, protegiendo la confidencialidad y la integridad de la información.
+
+\subsubsection{Entorno Linux}
+Existen diferentes recursos que se pueden utilizar a la hora de poder levantar un servidor HTTP, asi como diferente hardware en el que poder hacerlo. En el proyecto que se describe, la intención es dotar al proyecto de la mayor flexibilidad posible, la plataforma elegida ha sido un entorno Linux.
+
+Linux es conocido como un sistema operativo basado en código abierto y gratuito, dicho sistema operativo se sostiene sobre un kernel, donde reside la verdadera funcionalidad de Linux, por tanto, una mejor descripción sería decir que, Linux, es un kernel sobre el cual se basa un sistema operativo. Fue creado por Linus Torvalds en 1991 como un proyecto personal y se ha convertido en uno de los sistemas más populares y ampliamente utilizados en el mundo.
+
+Gran parte de la popularidad y del auge en el uso de Linux, es nu naturaleza de código abierto, más comunmente conocido com "open source", lo que significa que el código fuente del kernel está disponible para que cualquier persona lo pueda ver, modificar y distribuir. Esto fomenta que la comunidad de Linux sea completamente abierta, por lo que favorece la mejora de su funcionamiento asi como al añadido continuo de nuevas funcionalidades, las cuales poco a poco abarcan más campos de desarrollo.
+
+Otra de las razones por las cuales Linux es tan utilizado en la industria, reside en, la capacidad del adaptación del kernel de Linux a cualquier arquitectura hardware del dispositvo que se quiera poner en marcha para un proyecto. De hecho, es muy comun utilizar hardware ligeramente diferente en las etapas de prototipado y en la puesta en marcha en producción. Por lo cual, se puede utilizar una misma version de kernel para diferentes arquitecturas y el código que se escriba no difiere de un hardware a otro, o si lo hace, son cambios superficiales. Esto ocasiona que, podamos utilizar la misma version del Kernel de Linux tanto en el PC en el que estemos desarrollando, así comoen el harware el cual pondremo en funcionamiento.
+
+
+\begin{table}[h]
+\centering
+\caption{Comparación de servidor en Flask con otros lenguajes}
+\label{tabla:comparacion-servidor}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Lenguaje}    & \textbf{Complejidad de programación} & \textbf{Consumo de recursos}  \\ \hline
+Python (Flask)       & Baja                                 & Moderado                      \\ \hline
+Python (MongoDB)     & Baja a moderada                      & Moderado                      \\ \hline
+Node.js              & Baja a moderada                      & Moderado a alto               \\ \hline
+Java (Spring)        & Moderada                             & Alto                          \\ \hline
+Ruby (Ruby on Rails) & Moderada                             & Moderado a alto               \\ \hline
+C/C++ (Laravel)      & Moderada a alta                      & Bajo                          \\ \hline
+\end{tabular}
+\end{table}
+
+%% Aqui meter una comparativa de porquie he elegido hacer el servidor en flask y no por ejemplo en otro lenguaje
 
 \subsection{Módulos y librerias adicionales}
 Además de las tecnologías mencionadas, se han utilizado diversas bibliotecas y módulos adicionales para la implementación y funcionalidad del sistema. Estas incluyen bibliotecas para el manejo de imágenes, como PIL (Python Imaging Library), para el procesamiento y análisis de datos, como NumPy y OpenCV, y para la encriptación y autenticación en el lado del servidor, como OpenSSL.
