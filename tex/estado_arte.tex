@@ -11,18 +11,8 @@ Uno de los sectores en auge en esta última década es el sector de los sistemas
 El proyecto que se describirá a lo largo de la memoria se encarga de dotar de inteligencia artificial un robot con capacidad de teleoperación y reconocimiento del entorno en el cual se esté operando este mismo. Para poder conseguir esto, se ha tenido que poner a punto un robot que sea capaz de moverse y además sea capaz de procesar y reconocer los objetos de su entorno procesando esta información en tiempo real.
 
 Para conseguir esto se ha dotado al robot de visión artificial, la cual recogerá la información necesaria de una cámara incorporada en el robot y que se complementará con otros sensores que ayudaran al dispositivo móvil a poder moverse de una forma autónoma evitando colisiones.
-\section{Estudio previo}
-El proyecto se apoya en el microcontrolador ESP32, el protocolo HTTP/HTTPS, el servidor en Python con Flask y una variedad de bibliotecas adicionales para ofrecer una solución completa y eficiente. Estas tecnologías permiten la captura de imágenes, la comunicación segura con el servidor y el procesamiento de los datos recibidos. La elección de estas tecnologías se basa en su adecuación al propósito del proyecto, su capacidad de cumplir con los requisitos de rendimiento y seguridad, así como su popularidad y soporte en la comunidad de desarrollo.
 
-\subsection{Microcontrolador ESP32}
-El microcontrolador ESP32, desarrollado por Espressif Systems, es el componente central de este proyecto. Este dispositivo se destaca por su alto rendimiento, bajo consumo de energía y amplias capacidades de conectividad. Cuenta con un procesador de doble núcleo, conectividad Wi-Fi y Bluetooth, así como interfaces GPIO para interactuar con diversos periféricos. El ESP32 ofrece una plataforma sólida y versátil para implementar aplicaciones IoT y sistemas embebidos.
-
-%% Aqui meter una comparativa de porquie he escogido el modulito que he escogido
-
-\subsection{Servidor HTTP Python}
-Para la comunicación entre el microcontrolador y el servidor, se ha utilizado el protocolo HTTP (Hypertext Transfer Protocol) y su versión segura HTTPS (HTTP Secure). Estos protocolos permiten la transferencia de datos entre el cliente (microcontrolador) y el servidor de forma segura y eficiente. El uso de HTTPS garantiza la encriptación de los datos transmitidos, protegiendo la confidencialidad y la integridad de la información.
-
-\subsubsection{Entorno Linux}
+\subsection{Entorno Linux}
 Existen diferentes recursos que se pueden utilizar a la hora de poder levantar un servidor HTTP, asi como diferente hardware en el que poder hacerlo. En el proyecto que se describe, la intención es dotar al proyecto de la mayor flexibilidad posible, la plataforma elegida ha sido un entorno Linux.
 
 Linux es conocido como un sistema operativo basado en código abierto y gratuito, dicho sistema operativo se sostiene sobre un kernel, donde reside la verdadera funcionalidad de Linux, por tanto, una mejor descripción sería decir que, Linux, es un kernel sobre el cual se basa un sistema operativo. Fue creado por Linus Torvalds en 1991 como un proyecto personal y se ha convertido en uno de los sistemas más populares y ampliamente utilizados en el mundo.
@@ -30,6 +20,43 @@ Linux es conocido como un sistema operativo basado en código abierto y gratuito
 Gran parte de la popularidad y del auge en el uso de Linux, es nu naturaleza de código abierto, más comunmente conocido com "open source", lo que significa que el código fuente del kernel está disponible para que cualquier persona lo pueda ver, modificar y distribuir. Esto fomenta que la comunidad de Linux sea completamente abierta, por lo que favorece la mejora de su funcionamiento asi como al añadido continuo de nuevas funcionalidades, las cuales poco a poco abarcan más campos de desarrollo.
 
 Otra de las razones por las cuales Linux es tan utilizado en la industria, reside en, la capacidad del adaptación del kernel de Linux a cualquier arquitectura hardware del dispositvo que se quiera poner en marcha para un proyecto. De hecho, es muy comun utilizar hardware ligeramente diferente en las etapas de prototipado y en la puesta en marcha en producción. Por lo cual, se puede utilizar una misma version de kernel para diferentes arquitecturas y el código que se escriba no difiere de un hardware a otro, o si lo hace, son cambios superficiales. Esto ocasiona que, podamos utilizar la misma version del Kernel de Linux tanto en el PC en el que estemos desarrollando, así comoen el harware el cual pondremo en funcionamiento.
+
+\section{Estudio previo}
+El proyecto se apoya en el microcontrolador ESP32, el protocolo HTTP/HTTPS, el servidor en Python con Flask y una variedad de bibliotecas adicionales para ofrecer una solución completa y eficiente. Estas tecnologías permiten la captura de imágenes, la comunicación segura con el servidor y el procesamiento de los datos recibidos. La elección de estas tecnologías se basa en su adecuación al propósito del proyecto, su capacidad de cumplir con los requisitos de rendimiento y seguridad, así como su popularidad y soporte en la comunidad de desarrollo.
+
+\subsection{Microcontrolador ESP32}
+El microcontrolador ESP32, desarrollado por Espressif Systems, es el componente central de este proyecto. Este dispositivo se destaca por su alto rendimiento, bajo consumo de energía y amplias capacidades de conectividad. Cuenta con un procesador de doble núcleo, conectividad Wi-Fi y Bluetooth, así como interfaces GPIO para interactuar con diversos periféricos. El ESP32 ofrece una plataforma sólida y versátil para implementar aplicaciones IoT y sistemas embebidos.
+
+Espressif Systems tiene una amplia gama de microcontroladores, dentro los microcontroladores disponibles, hay diferentes criterios a tener en cuenta que pueden influir en la elección. Aquí se muestra una pequeña descripcion de estos criterios a tener en cuenta.
+
+\subsubsection{Potencia de procesamiento}
+Dentro de la gama de microcontroladors de Esspressif, concretamente ESP32, existen diferentes velocidades de reloj y configuraciones de núcleos. Es relativamente complejo evaluar la potencia que va a consumir nuestro programa antes siquiera de escribir al código que va a ejecutar dicha aplicación. Aun así, existen diferentes recursos en la red donde podemos consultar proyectos similares, para tener en cuenta el hardware que se ha utilizado en dicho proyecto.
+
+\subsubsection{Memoria}
+Otro recurso que se debe de tener en cuenta cuando se esta evaluando la tecnología a utilizar, es la capacidad de almacenamiento del dispositivo asi como el tamaño de memoria RAM que se dispone en el dispositivo. Es importante plantear que se debe de almacenar en el microcontrolador, por ejemplo en el caso que se describe, se debe de almacenar el binario generado a partir de código escrito además de credenciales Wifi, imagenes capturadas de la cámara de forma temporal, certificados de servidores, etc...
+
+A parte de lo descrito en el párrafo anterior, el proyectistew se ha de asegurar que haya suficiente memoria RAM para las operaciones y cálculos requeridos en el proyecto.
+
+\subsubsection{Periféricos y conectividad}
+No se ha de olvidar el nivel de conectividad que se le quiera dar al microcontrolador utilizado en el proyecto. En el caso de este proyecto en particular, se deben de considerar diferentes periféricos o diferentes canales de conectividad, a continuación se describen los canales  periféricos que se han tenido en cuenta.  
+
+\paragraph{WiFi}
+Ya que el dispositivo debe de funcionar de forma remota, una de las principales funcionalidades a nivel de conectividad debe de ser la conectividad WiFi, ya que va a ser un dispositivo que va a funcionar el 100\% del tiempo de forma remota, se necesita no perder la comunicación con el dispositivo en ningún momento, además de que se debe de poder establecer un canal de comunicación bidireccional.
+
+\paragraph{Bluetooth}
+Bluetooth (incluyendo Bluetooth Low Energy),
+
+\paragraph{Sensórica}
+Tal y como se describe en el proyecto, el sensor principal alrededor del cual gira el proyecto es la cámara. Por tanto, se ha de buscar un microcontrolador de la gama que cuente con conectividad SSBC, que son las siglas de la interfaz de bus de cámara serial. Además de esta interfaz, se ha comprobado, que el microcontrolador escogido, cuente con interfaces comunes para poder dotar de escalabilidad al proyecto, tales como UART, I2C, SPI, ADC's, GPIO... Se esta forma, se garantiza que en un futuro el proyecto se pueda escalar y se le puedan añadir los sensores adpatados a nuevas necesidades del proyecto. 
+
+\paragraph{Consumo de energía}
+La eficiencia energética es otro de los factores a tener en cuenta a la hora de escoger un dispositivo, en este caso en concreto, es cierto que 
+%%%%%% WIP
+Si la eficiencia energética es un factor importante en tu proyecto, verifica las especificaciones de consumo de energía del microcontrolador ESP32. Algunos microcontroladores ofrecen modos de bajo consumo que pueden ser útiles en aplicaciones con restricciones energéticas.
+%% Aqui meter una comparativa de porquie he escogido el modulito que he escogido
+
+\subsection{Servidor HTTP Python}
+Para la comunicación entre el microcontrolador y el servidor, se ha utilizado el protocolo HTTP (Hypertext Transfer Protocol) y su versión segura HTTPS (HTTP Secure). Estos protocolos permiten la transferencia de datos entre el cliente (microcontrolador) y el servidor de forma segura y eficiente. El uso de HTTPS garantiza la encriptación de los datos transmitidos, protegiendo la confidencialidad y la integridad de la información.
 
 
 \begin{table}[h]
