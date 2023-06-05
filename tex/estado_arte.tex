@@ -50,10 +50,12 @@ Bluetooth (incluyendo Bluetooth Low Energy),
 Tal y como se describe en el proyecto, el sensor principal alrededor del cual gira el proyecto es la cámara. Por tanto, se ha de buscar un microcontrolador de la gama que cuente con conectividad SSBC, que son las siglas de la interfaz de bus de cámara serial. Además de esta interfaz, se ha comprobado, que el microcontrolador escogido, cuente con interfaces comunes para poder dotar de escalabilidad al proyecto, tales como UART, I2C, SPI, ADC's, GPIO... Se esta forma, se garantiza que en un futuro el proyecto se pueda escalar y se le puedan añadir los sensores adpatados a nuevas necesidades del proyecto. 
 
 \paragraph{Consumo de energía}
-La eficiencia energética es otro de los factores a tener en cuenta a la hora de escoger un dispositivo, en este caso en concreto, es cierto que 
-%%%%%% WIP
-Si la eficiencia energética es un factor importante en tu proyecto, verifica las especificaciones de consumo de energía del microcontrolador ESP32. Algunos microcontroladores ofrecen modos de bajo consumo que pueden ser útiles en aplicaciones con restricciones energéticas.
-%% Aqui meter una comparativa de porquie he escogido el modulito que he escogido
+La eficiencia energética es otro de los factores a tener en cuenta a la hora de escoger un dispositivo, en este caso en concreto, es cierto que no es condicion inequa que el dispositivo funcione conectado a bateria, ya que puede ser que la aplicación de dicho proyecto, cuente con una fuente de energía que no se agote y no haya recargar.
+
+Dicho esto, para el proyecto mencionado, no se ha estudiado en profundidad el consumo del microcontrolador, aunque si se han tomado estimaciones que se describiran a lo largo de la memoria.
+
+\paragraph{Compatibilidad y soporte}
+Esperssif cuenta con un SDK (software development kit) de código abierto o "open source". Es por ello que al poder compartir todo este código abiertamente, se forma una comunidad bastante amplia colaborando y manteniendo código. Facilitando el desarrollo de aplicaciones con aportaciones de ejemplos, libreras... en el siguiente capítulo se explica la esctructura de este SDK, todas las herramientas que este ofrece y porque se ha escogido esta plataforma de desarrollo.
 
 \subsection{Servidor HTTP Python}
 Para la comunicación entre el microcontrolador y el servidor, se ha utilizado el protocolo HTTP (Hypertext Transfer Protocol) y su versión segura HTTPS (HTTP Secure). Estos protocolos permiten la transferencia de datos entre el cliente (microcontrolador) y el servidor de forma segura y eficiente. El uso de HTTPS garantiza la encriptación de los datos transmitidos, protegiendo la confidencialidad y la integridad de la información.
@@ -71,7 +73,7 @@ Python (MongoDB)     & Baja a moderada                      & Moderado          
 Node.js              & Baja a moderada                      & Moderado a alto               \\ \hline
 Java (Spring)        & Moderada                             & Alto                          \\ \hline
 Ruby (Ruby on Rails) & Moderada                             & Moderado a alto               \\ \hline
-C/C++ (Laravel)      & Moderada a alta                      & Bajo                          \\ \hline
+C/C++ (mongoose-cpp) & Moderada a alta                      & Bajo                          \\ \hline
 \end{tabular}
 \end{table}
 
